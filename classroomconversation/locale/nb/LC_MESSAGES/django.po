@@ -1,0 +1,91 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-03 09:34-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: classroomconversation/conversation/forms.py:12
+msgid "form.label.name"
+msgstr "Et navn"
+
+#: classroomconversation/conversation/forms.py:13
+msgid "form.label.description"
+msgstr "Beskrivelse"
+
+#: classroomconversation/conversation/forms.py:14
+msgid "form.label.document"
+msgstr "Dokument"
+
+#: classroomconversation/conversation/forms.py:15
+msgid "form.label.uniform_probability"
+msgstr "Uniform sannsynlighet"
+
+#: classroomconversation/templates/403.html:5
+msgid "403"
+msgstr "Du har ikke de riktige tilgangene"
+
+#: classroomconversation/templates/404.html:5
+msgid "404"
+msgstr "404 - Ånei! En feil har oppstått :("
+
+#: classroomconversation/templates/base.html:54
+msgid "navigation.conversation"
+msgstr "Alle samtaler"
+
+#: classroomconversation/templates/base.html:59
+msgid "navigation.upload"
+msgstr "Last opp"
+
+#: classroomconversation/templates/base.html:76
+msgid "form.label.button.language"
+msgstr "Bytt  "
+
+#: classroomconversation/templates/base.html:81
+msgid "profile.hello"
+msgstr "Hei, "
+
+#: classroomconversation/templates/document_list.html:9
+msgid "table.label.date"
+msgstr "Dato"
+
+#: classroomconversation/templates/document_list.html:10
+msgid "table.label.name"
+msgstr "Navn"
+
+#: classroomconversation/templates/document_list.html:11
+msgid "table.label.description"
+msgstr "Beskrivelse"
+
+#: classroomconversation/templates/document_list.html:12
+msgid "table.label.file"
+msgstr "Fil"
+
+#: classroomconversation/templates/document_list.html:13
+msgid "table.label.share"
+msgstr "Del"
+
+#: classroomconversation/templates/document_list.html:20
+msgid "table.action.download"
+msgstr "Last ned"
+
+#: classroomconversation/templates/document_list.html:25
+msgid "table.action.start"
+msgstr "Start samtale"
+
+#: classroomconversation/templates/upload_document.html:11
+msgid "form.label.button"
+msgstr "Last opp"

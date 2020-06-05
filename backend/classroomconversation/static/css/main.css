@@ -1,0 +1,53 @@
+form {
+  margin: 30px 0;
+  max-width: 400px;
+}
+
+a {
+  color: lightgray;
+}
+
+table {
+  margin: 30px 0;
+}
+table a {
+  color: lightcoral;
+}
+table a:hover {
+  color: lightcoral;
+}
+
+.login,
+.logout {
+  color: lightcoral;
+}
+
+.links {
+  display: flex;
+}
+
+.active {
+  color: lightcoral;
+}
+a:hover {
+  color: white;
+}
+
+.container {
+  width: 100%;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  margin: 30px 0;
+}
+
+form.change-language {
+  margin: 0;
+}
+
+select {
+  background: transparent;
+  color: lightgray;
+  border: none;
+}

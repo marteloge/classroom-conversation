@@ -15,6 +15,7 @@ pprint = "*"
 pylint-django = "*"
 django-crispy-forms = "*"
 djangorestframework = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.8"

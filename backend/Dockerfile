@@ -8,7 +8,3 @@ RUN apt-get update && apt-get install --yes gettext && pip install pipenv
 COPY Pipfile Pipfile.lock /
 RUN pipenv lock --requirements > requirements.txt && pip install -r requirements.txt
 COPY ./classroomconversation/ .
-
-# Easier to kill the container
-# ENV GRACEFUL_TIMEOUT=1
-# ENV MODULE_NAME=height_service.main

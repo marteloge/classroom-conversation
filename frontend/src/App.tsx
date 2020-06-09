@@ -7,7 +7,7 @@ import Landingpage from "./Landingpage/Landingpage";
 import ConversationComponent from "./Conversation/Conversation";
 import Start from "./Start/Start";
 
-import background from "./static/background2.png";
+import background from "./static/background-small.png";
 import Browse from "./Browse/Browse";
 
 const GlobalStyle = createGlobalStyle`

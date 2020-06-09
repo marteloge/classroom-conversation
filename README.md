@@ -1,3 +1,13 @@
+#The app
+The app consist of a Django app for admins also serving as an api and a react app.
+
+- `/admin`--> The admin panel to handle users and data
+- `/upload` --> Upload new conversation (.graphml)
+- `/upload/list` --> Look at all uploaded conversations
+- `/`--> The landing page of the react app
+- `/browse` --> Browse the conversations to start
+- `/conversation/<uui>/start` --> Start conversation (the main entry to the app)
+
 #Production
 
 ## Requirements (Ubuntu)

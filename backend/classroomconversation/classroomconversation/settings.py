@@ -22,9 +22,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get("SECRET_KEY", "$u0n)65c)f")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = int(os.environ.get("DEBUG", default=0))
+DEBUG = int(os.environ.get("DEBUG", default=1))
 
-ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "[]").split(" ")
+ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "localhost").split(" ")
 
 # Application definition
 
@@ -96,7 +96,7 @@ DATABASES = {
         "NAME": os.environ.get("POSTGRES_DB", "postgres"),
         "USER": os.environ.get("POSTGRES_USER", "postgres"),
         "PASSWORD": os.environ.get("POSTGRES_PASSWORD", "postgres"),
-        "HOST": "db",
+        "HOST": os.environ.get("POSTGRES_HOST", "localhost"),
         "PORT": "5432",
     }
 }
@@ -151,8 +151,8 @@ LOGIN_URL = "/account/login/"
 LOGIN_REDIRECT_URL = "/upload"
 LOGOUT_REDIRECT_URL = None
 
-# if os.environ.get("USE_SSL", False):
-#     SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
-#     SECURE_SSL_REDIRECT = True
-#     SESSION_COOKIE_SECURE = True
-#     CSRF_COOKIE_SECURE = True
+if os.environ.get("USE_SSL", False):
+    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True

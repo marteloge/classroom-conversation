@@ -51,3 +51,14 @@ select {
   color: lightgray;
   border: none;
 }
+
+button#copy-link {
+  border: none;
+  background: none;
+  color: lightcoral;
+  cursor: pointer;
+}
+
+button#copy-link:hover {
+  text-decoration: underline;
+}

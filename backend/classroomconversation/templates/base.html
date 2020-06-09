@@ -40,6 +40,15 @@
       function changeLanguage() {
         $("#language-button").click();
       }
+
+      function copyLinkToClipboard(str) {
+        var element = document.createElement('textarea');
+        element.value = location.origin + str;
+        document.body.appendChild(element);
+        element.select();
+        document.execCommand('copy');
+        document.body.removeChild(element);
+      };
     </script>
 
     <link rel="stylesheet" href="{% static 'css/main.css' %}" />

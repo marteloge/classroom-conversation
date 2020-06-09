@@ -1,14 +1,8 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-03 09:34-0400\n"
+"POT-Creation-Date: 2020-06-09 14:13-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,19 +36,19 @@ msgstr "Du har ikkje dei riktige tilgangane"
 msgid "404"
 msgstr "404 - Ånei! En feil har oppstått :("
 
-#: classroomconversation/templates/base.html:54
+#: classroomconversation/templates/base.html:63
 msgid "navigation.conversation"
 msgstr "Alle samtalar"
 
-#: classroomconversation/templates/base.html:59
+#: classroomconversation/templates/base.html:68
 msgid "navigation.upload"
 msgstr "Last opp"
 
-#: classroomconversation/templates/base.html:76
+#: classroomconversation/templates/base.html:85
 msgid "form.label.button.language"
 msgstr "Bytt"
 
-#: classroomconversation/templates/base.html:81
+#: classroomconversation/templates/base.html:90
 msgid "profile.hello"
 msgstr "Hei, "
 
@@ -75,16 +69,24 @@ msgid "table.label.file"
 msgstr "Fil"
 
 #: classroomconversation/templates/document_list.html:13
-msgid "table.label.share"
-msgstr "Del"
+msgid "table.label.start"
+msgstr "Test samtale"
 
-#: classroomconversation/templates/document_list.html:20
+#: classroomconversation/templates/document_list.html:14
+msgid "table.label.copy"
+msgstr "Kopier link"
+
+#: classroomconversation/templates/document_list.html:21
 msgid "table.action.download"
 msgstr "Last ned"
 
 #: classroomconversation/templates/document_list.html:25
 msgid "table.action.start"
-msgstr "Start samtale"
+msgstr "Test"
+
+#: classroomconversation/templates/document_list.html:28
+msgid "table.action.copy"
+msgstr "Kopier"
 
 #: classroomconversation/templates/upload_document.html:11
 msgid "form.label.button"

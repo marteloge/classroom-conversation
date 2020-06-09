@@ -8,6 +8,9 @@ import { UrlParams, Questions, Question, Answers, Answer } from "./../types";
 
 import clock from "./../static/clock.png";
 
+import gloriahallelujah from "./../static/gloria.ttf";
+import opensans from "./../static/opensans.ttf";
+
 import {
   PDFDownloadLink,
   Document,
@@ -20,13 +23,11 @@ import {
 
 Font.register({
   family: "opensans",
-  src:
-    "https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFVZ0ef8pkAg.ttf",
+  src: opensans,
 });
 Font.register({
-  family: "gloria",
-  src:
-    "https://fonts.gstatic.com/s/gloriahallelujah/v11/LYjYdHv3kUk9BMV96EIswT9DIbW-MIS11zamvVCE.ttf",
+  family: "gloriahallelujah",
+  src: gloriahallelujah,
 });
 
 const styles = StyleSheet.create({
@@ -57,7 +58,7 @@ const styles = StyleSheet.create({
     height: "100%",
   },
   conversatioName: {
-    fontFamily: "gloria",
+    fontFamily: "gloriahallelujah",
     textAlign: "center",
     fontSize: 35,
     margin: "5%",

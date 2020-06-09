@@ -21,12 +21,12 @@ import {
 Font.register({
   family: "opensans",
   src:
-    "http://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFVZ0ef8pkAg.ttf",
+    "https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFVZ0ef8pkAg.ttf",
 });
 Font.register({
   family: "gloriahallelujah",
   src:
-    "http://fonts.gstatic.com/s/gloriahallelujah/v11/LYjYdHv3kUk9BMV96EIswT9DIbW-MIS11zamvVCE.ttf",
+    "https://fonts.gstatic.com/s/gloriahallelujah/v11/LYjYdHv3kUk9BMV96EIswT9DIbW-MIS11zamvVCE.ttf",
 });
 
 const styles = StyleSheet.create({

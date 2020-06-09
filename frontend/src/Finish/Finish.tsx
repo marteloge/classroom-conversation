@@ -18,20 +18,16 @@ import {
   Font,
 } from "@react-pdf/renderer";
 
-const opensans =
-  "https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFVZ0ef8pkAg.ttf";
-
-const gloriahallelujah =
-  "https://fonts.gstatic.com/s/gloriahallelujah/v11/LYjYdHv3kUk9BMV96EIswT9DIbW-MIS11zamvVCE.ttf";
-
 Font.register({
   family: "opensans",
-  src: opensans,
+  src:
+    "https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFVZ0ef8pkAg.ttf",
 });
 
 Font.register({
   family: "gloriahallelujah",
-  src: gloriahallelujah,
+  src:
+    "https://fonts.gstatic.com/s/gloriahallelujah/v11/LYjYdHv3kUk9BMV96EIswT9DIbW-MIS11zamvVCE.ttf",
 });
 
 const styles = StyleSheet.create({

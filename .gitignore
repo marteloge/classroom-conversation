@@ -1,2 +1,7 @@
 *.crt
 *.key
+
+mediafiles/
+staticfiles/
+
+.vscode

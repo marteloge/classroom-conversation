@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { selectRandomAnswers } from "./helpers";
 
-export function useLocalStorage<T>(key: string): [T, (v: T) => void] {
+export function useLocalStorage<T>(uuid: string): [T, (v: T) => void] {
   const [storedValue, setStoredValue] = useState<T>(() => {
     try {
-      const localValue = window.localStorage.getItem(key);
+      const localValue = window.localStorage.getItem(uuid);
       return localValue ? JSON.parse(localValue) : null;
     } catch (error) {
       return null;
@@ -14,7 +14,11 @@ export function useLocalStorage<T>(key: string): [T, (v: T) => void] {
   const setValue = (value: T) => {
     try {
       setStoredValue(value);
-      window.localStorage.setItem(key, JSON.stringify(value));
+      window.localStorage.setItem(uuid, JSON.stringify(value));
+      window.localStorage.setItem(
+        "student_" + uuid,
+        "" + (Math.floor(Math.random() * 2) + 1)
+      );
     } catch (error) {
       console.log(error);
     }

@@ -3,10 +3,20 @@ import { useParams, useHistory } from "react-router-dom";
 
 import { StyledFinish } from "./Finish.styled";
 
-import { removeConversation, getRecordedConversation } from "./../helpers";
+import {
+  removeConversation,
+  getRecordedConversation,
+  getSelectedAvatar,
+  getSelectedStudent,
+} from "./../helpers";
 import { UrlParams, Questions, Question, Answers, Answer } from "./../types";
 
 import clock from "./../static/clock.png";
+
+import teacherFemale from "./../static/teacher_woman.png";
+import teacherMale from "./../static/teacher_man.png";
+import studentGirl from "./../static/student_girl.png";
+import studentBoy from "./../static/student_boy.png";
 
 import {
   PDFDownloadLink,
@@ -16,6 +26,7 @@ import {
   Text,
   StyleSheet,
   Font,
+  Image,
 } from "@react-pdf/renderer";
 
 Font.register({
@@ -72,10 +83,23 @@ const styles = StyleSheet.create({
   },
   conversationDate: {
     fontFamily: "opensans",
-    fontSize: 15,
+    fontSize: 12,
     textAlign: "center",
-    bottom: "10%",
+    bottom: 20,
     position: "absolute",
+    color: "darkgrey",
+  },
+  teacher: {
+    width: 200,
+    position: "absolute",
+    bottom: 0,
+    left: 10,
+  },
+  student: {
+    width: 150,
+    position: "absolute",
+    bottom: 0,
+    right: 10,
   },
 });
 
@@ -85,6 +109,8 @@ type PDFProps = {
   questions: Questions;
   dialog: string[];
   answers: Answers;
+  student: string;
+  teacher: string;
 };
 
 type FinishProps = {
@@ -105,11 +131,16 @@ const PDFDocument = ({
   questions,
   dialog,
   answers,
+  student,
+  teacher,
 }: PDFProps) => (
   <Document>
     <Page size="A4" style={styles.introPage}>
       <Text style={styles.conversatioName}>{name}</Text>
       <Text style={styles.conversationDescription}>{description}</Text>
+
+      <Image style={styles.teacher} src={teacher} />
+      <Image style={styles.student} src={student} />
       <Text style={styles.conversationDate}>Dato: {getDate()}</Text>
     </Page>
 
@@ -145,6 +176,11 @@ const Finish = ({ name, description, questions, answers }: FinishProps) => {
   const history = useHistory();
   const { uuid } = useParams<UrlParams>();
 
+  const teacherImg: string =
+    getSelectedAvatar() === 1 ? teacherFemale : teacherMale;
+  const studentImg: string =
+    getSelectedStudent(uuid) === 1 ? studentGirl : studentBoy;
+
   return (
     <StyledFinish>
       <h1>Friminutt!</h1>
@@ -168,6 +204,8 @@ const Finish = ({ name, description, questions, answers }: FinishProps) => {
               questions={questions}
               dialog={getRecordedConversation(uuid)}
               answers={answers}
+              student={studentImg}
+              teacher={teacherImg}
             />
           }
           fileName={"test.pdf"}

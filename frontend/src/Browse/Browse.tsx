@@ -5,24 +5,25 @@ import { StyledBrowse, StyledLinks } from "./Browse.styled";
 
 import { useFetch } from "../hooks";
 import Loading from "../Loading/Loading";
+import Notfound from "../Notfound/Notfound";
 import { Conversation } from "../types";
-
-import Globe from "./../static/globe.png";
 
 const Browse = () => {
   const history = useHistory();
 
   const [data, loading] = useFetch<Array<Conversation>>("/api/document");
 
-  if (!data || loading) {
+  if (loading) {
     return <Loading />;
+  }
+
+  if (!data) {
+    return <Notfound />;
   }
 
   return (
     <StyledBrowse>
       <h1>Alle samtaler</h1>
-
-      <img src={Globe} />
 
       <StyledLinks>
         {data.map((conversation: Conversation) => (

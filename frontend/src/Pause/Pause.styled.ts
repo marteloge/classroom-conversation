@@ -43,8 +43,4 @@ export const StyledAlternatives = styled.div`
       justify-content: space-around;
     }
   }
-
-  button {
-    margin: 0 10px;
-  }
 `;

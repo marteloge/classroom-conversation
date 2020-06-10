@@ -1,12 +1,14 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-
-import { Graph, Answer, Answers, Questions } from "../types";
-
 import { motion } from "framer-motion";
 
-import teacher from "./../static/teacher.png";
-import student from "./../static/student.png";
+import { Graph, Answer, Answers, Questions } from "../types";
+import { getSelectedAvatar, getSelectedStudent } from "../helpers";
+
+import teacherWoman from "./../static/teacher_woman.png";
+import teacherMan from "./../static/teacher_man.png";
+import studentGirl from "./../static/student_girl.png";
+import studentBoy from "./../static/student_boy.png";
 
 import {
   StyledQuestion,
@@ -28,6 +30,9 @@ const QuestionComponent = ({ graph, uuid, id }: Props) => {
   const question = questions[id];
   const randomAnswer: Answer = answers[question.selectedAnswer];
   const alternatives: Array<string> = randomAnswer.alternatives;
+
+  const student = getSelectedStudent(uuid);
+  const avatar = getSelectedAvatar();
 
   return (
     <StyledQuestion>
@@ -56,8 +61,18 @@ const QuestionComponent = ({ graph, uuid, id }: Props) => {
 
       <StyledAlternatives>
         <StyledIcons>
-          <img className="teacher" alt="teacher icon" src={teacher} />
-          <img className="student" alt="student icon" src={student} />
+          {avatar === 1 && (
+            <img className="teacher" src={teacherWoman} alt="Female avatar" />
+          )}
+          {avatar === 2 && (
+            <img className="teacher" src={teacherMan} alt="Male avatar" />
+          )}
+          {student === 1 && (
+            <img className="student" alt="student avatar" src={studentGirl} />
+          )}
+          {student === 2 && (
+            <img className="student" alt="student avatar" src={studentBoy} />
+          )}
         </StyledIcons>
 
         <div className="alternatives">

@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 
 import { useFetchAndStoreConversation } from "../hooks";
+import { addQuestionToConversation } from "./../helpers";
 import {
   Conversation,
   Graph,
@@ -15,8 +16,7 @@ import QuestionComponent from "./../Question/Question";
 import Finish from "./../Finish/Finish";
 import Pause from "./../Pause/Pause";
 import Loading from "./../Loading/Loading";
-
-import { addQuestionToConversation } from "./../helpers";
+import Notfound from "../Notfound/Notfound";
 
 const nodeShape = {
   ROUND_RECTANGLE: "roundrectangle",
@@ -51,8 +51,12 @@ const ConversationComponent = () => {
     uuid
   );
 
-  if (!data || loading) {
+  if (loading) {
     return <Loading />;
+  }
+
+  if (!data) {
+    return <Notfound />;
   }
 
   addQuestionToConversation(id, uuid);

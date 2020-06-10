@@ -15,7 +15,7 @@ const Landingpage = () => {
         <p>Er du her for å øve? Ta en titt på alle tilgjengelige samtaler!</p>
         <br></br>
         <br></br>
-        <a onClick={() => history.push("/browse")}>Alle samtaler</a>
+        <button onClick={() => history.push("/browse")}>Alle samtaler</button>
       </div>
     </StyledLandingpage>
   );

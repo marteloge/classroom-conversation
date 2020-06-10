@@ -5,18 +5,47 @@ import { calculateResponsiveSize } from "./../helpers";
 const StyledStart = styled.div`
   min-height: 100vh;
   max-width: 700px;
-
   margin: 0 auto;
-  padding: 0 5%;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: center;
 
-  .actions {
+  .actions,
+  .avatars {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+  }
+
+  .actions {
+    align-items: stretch;
+  }
+  .actions button {
+    margin: 0 10px;
+  }
+
+  .avatars {
+    margin: 20px 0;
+  }
+
+  .avatars img {
+    max-width: ${calculateResponsiveSize(100, 230)};
+    margin: 0 10px;
+    cursor: pointer;
+
+    border: 1px white;
+    padding: 20px;
+    border-style: hidden;
+  }
+
+  .avatars img.selected {
+    border-style: solid none solid none;
+  }
+
+  .avatars img:hover {
+    border-style: solid none solid none;
   }
 
   div {
@@ -24,21 +53,12 @@ const StyledStart = styled.div`
     flex-direction: column;
     align-items: center;
     text-align: center;
-
     padding: 5%;
     max-width: 900px;
-
-    * {
-      margin: 15px 0;
-    }
   }
 
   img {
     width: ${calculateResponsiveSize(150, 300)};
-  }
-
-  button {
-    margin: 0 10px;
   }
 `;
 

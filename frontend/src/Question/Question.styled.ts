@@ -18,15 +18,18 @@ export const StyledAnswer = styled.div`
 
   h2 {
     width: 50%;
-    padding: 2%;
     font-family: "Gloria Hallelujah", cursive;
   }
 
   .teacher {
+    padding-left: 10%;
+    padding-right: 2%;
     text-align: left;
   }
 
   .student {
+    padding-left: 2%;
+    padding-right: 10%;
     text-align: right;
   }
 `;

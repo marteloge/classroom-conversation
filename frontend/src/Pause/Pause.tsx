@@ -1,16 +1,18 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import { motion } from "framer-motion";
 
 import { PauseProps } from "./../types";
+import { getSelectedAvatar } from "./../helpers";
+
+import teacherWoman from "./../static/teacher_woman.png";
+import teacherMan from "./../static/teacher_man.png";
 
 import { StyledPause, StyledAlternatives } from "./Pause.styled";
 
-import teacher from "./../static/teacher.png";
-
-import { motion } from "framer-motion";
-
 const Pause = ({ uuid, id, next, current }: PauseProps) => {
   const history = useHistory();
+  const avatar = getSelectedAvatar();
 
   return (
     <StyledPause>
@@ -36,7 +38,9 @@ const Pause = ({ uuid, id, next, current }: PauseProps) => {
       </motion.h2>
 
       <StyledAlternatives>
-        <img src={teacher} alt="teacher icon" />
+        {avatar === 1 && <img src={teacherWoman} alt="Female avatar" />}
+        {avatar === 2 && <img src={teacherMan} alt="Male avatar" />}
+
         <div className="alternatives">
           <motion.button
             initial={{ opacity: 0 }}

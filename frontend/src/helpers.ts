@@ -76,6 +76,8 @@ export const removeRecordedConversation = () => {
 
 export const removeConversation = (uuid: string) => {
   window.localStorage.removeItem(uuid);
+  window.localStorage.removeItem("conversation_" + uuid);
+  window.localStorage.removeItem("student_" + uuid);
 };
 
 export const hasDialogRecorded = (uuid: string) => {

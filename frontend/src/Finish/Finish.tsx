@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
 
 type PDFProps = {
   name: string;
-  description: string;
+  intro: string;
   questions: Questions;
   dialog: string[];
   answers: Answers;
@@ -115,7 +115,7 @@ type PDFProps = {
 
 type FinishProps = {
   name: string;
-  description: string;
+  intro: string;
   questions: Questions;
   answers: Answers;
 };
@@ -127,7 +127,7 @@ const getDate = () => {
 
 const PDFDocument = ({
   name,
-  description,
+  intro,
   questions,
   dialog,
   answers,
@@ -137,7 +137,7 @@ const PDFDocument = ({
   <Document>
     <Page size="A4" style={styles.introPage}>
       <Text style={styles.conversatioName}>{name}</Text>
-      <Text style={styles.conversationDescription}>{description}</Text>
+      <Text style={styles.conversationDescription}>{intro}</Text>
 
       <Image style={styles.teacher} src={teacher} />
       <Image style={styles.student} src={student} />
@@ -172,7 +172,7 @@ const PDFDocument = ({
   </Document>
 );
 
-const Finish = ({ name, description, questions, answers }: FinishProps) => {
+const Finish = ({ name, intro, questions, answers }: FinishProps) => {
   const history = useHistory();
   const { uuid } = useParams<UrlParams>();
 
@@ -200,7 +200,7 @@ const Finish = ({ name, description, questions, answers }: FinishProps) => {
           document={
             <PDFDocument
               name={name}
-              description={description}
+              intro={intro}
               questions={questions}
               dialog={getRecordedConversation(uuid)}
               answers={answers}

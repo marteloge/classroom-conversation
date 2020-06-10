@@ -10,6 +10,7 @@ import {
   Question,
   Questions,
   Answers,
+  StartNode,
 } from "../types";
 
 import QuestionComponent from "./../Question/Question";
@@ -64,12 +65,13 @@ const ConversationComponent = () => {
   const graph: Graph = data.json;
   const answers: Answers = graph.answers;
   const questions: Questions = graph.questions;
+  const startNode: StartNode = data.json.start;
 
   if (isConversationFinished(id, questions, graph.end)) {
     return (
       <Finish
         name={data.name}
-        description={data.description}
+        intro={startNode.label}
         questions={questions}
         answers={answers}
       />

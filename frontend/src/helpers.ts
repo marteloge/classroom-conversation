@@ -87,3 +87,17 @@ export const getLastQuestion = (uuid: string) => {
   const dialog: string[] = getRecordedConversation(uuid);
   return dialog[dialog.length - 1];
 };
+
+export const getSelectedAvatar = (): number => {
+  const avatar = window.localStorage.getItem("avatar");
+  return avatar != null ? parseInt(avatar) : 1;
+};
+
+export const setSelectedStudent = (uuid: string, id: number): void => {
+  window.localStorage.setItem(`student_${uuid}`, "" + id);
+};
+
+export const getSelectedStudent = (uuid: string): number => {
+  const student = window.localStorage.getItem(`student_${uuid}`);
+  return student != null ? parseInt(student) : 1;
+};

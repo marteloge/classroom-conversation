@@ -1,6 +1,6 @@
 import xml.etree.ElementTree as ElementTree
 
-from .helpers import get_graphml, get_data_key_id, get_node_label
+from .helpers import get_graphml, get_node_data_key, get_node_label, get_edge_label
 
 
 def graphml_to_json(file, uniform_probability):
@@ -21,7 +21,7 @@ def graphml_to_json(file, uniform_probability):
     }
 
     ## node kan have different data elements.
-    data_key_id = get_data_key_id(root)
+    data_key_id = get_node_data_key(root)
 
     for node in nodes:
         nodeid = node.get("id")
@@ -47,7 +47,6 @@ def graphml_to_json(file, uniform_probability):
                     target_id = edge.get("target")
                     edgedata = edge.find(graphml.get("data"))
                     line = edgedata.find(graphml.get("polyLine"))
-                    edgelabel = None
 
                     answer_node = graph.find(
                         graphml.get("node") + "[@id='" + target_id + "']"
@@ -63,20 +62,19 @@ def graphml_to_json(file, uniform_probability):
                         else ""
                     )
 
-                    if line:
-                        edgelabel = line.find(graphml.get("edgelabel"))
-
-                    if not uniform_probability and edgelabel:
+                    if not uniform_probability:
                         try:
                             answers.append(
                                 {
                                     "id": target_id,
                                     "shape": shape,
-                                    "probability": float(edgelabel.text),
+                                    "probability": float(get_edge_label(edge, root)),
                                 }
                             )
                         except ValueError:
-                            answers.append({"id": target_id, "shape": shape})
+                            answers.append(
+                                {"id": target_id, "shape": shape, "probability": 0}
+                            )
                     else:
                         answers.append({"id": target_id, "shape": shape})
 

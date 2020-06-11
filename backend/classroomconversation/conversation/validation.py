@@ -4,9 +4,10 @@ from .helpers import (
     get_tree_root_graph,
     get_all_nodes,
     get_all_edges,
-    is_shape,
-    get_shape,
-    get_node_by_id
+    is_node_shape,
+    get_node_shape,
+    get_node_by_id,
+    get_edge_label
 )
 
 
@@ -14,20 +15,20 @@ def has_one_star_node(file):
     (tree, root, graph, graphml) = get_tree_root_graph(file)
     nodes = get_all_nodes(graph)
 
-    return len([node for node in nodes if is_shape("star", node, root)]) == 1
+    return len([node for node in nodes if is_node_shape("star", node, root)]) == 1
 
 
 def has_octant_node(file):
     (tree, root, graph, graphml) = get_tree_root_graph(file)
     nodes = get_all_nodes(graph)
 
-    return len([node for node in nodes if is_shape("octagon", node, root)]) > 0
+    return len([node for node in nodes if is_node_shape("octagon", node, root)]) > 0
 
 
 def diamonds_connected_to_squares(file):
     (tree, root, graph, graphml) = get_tree_root_graph(file)
     nodes = [
-        node for node in get_all_nodes(graph) if get_shape(node, root) == "diamond"
+        node for node in get_all_nodes(graph) if get_node_shape(node, root) == "diamond"
     ]
 
     for node in nodes:
@@ -41,7 +42,7 @@ def diamonds_connected_to_squares(file):
 
         for source in sources:
             source_node = get_node_by_id(source, graph)
-            if not is_shape("roundrectangle", source_node, root):
+            if not is_node_shape("roundrectangle", source_node, root):
                 return False
 
     return True
@@ -52,7 +53,7 @@ def broken_conversation(file):
     nodes = [
         node
         for node in get_all_nodes(graph)
-        if get_shape(node, root) in ["diamond", "roundrectangle"]
+        if get_node_shape(node, root) in ["diamond", "roundrectangle"]
     ]
 
     for node in nodes:
@@ -102,7 +103,7 @@ def has_illegal_node_shapes(file):
     invalid_shapes = [
         node
         for node in nodes
-        if not any(get_shape(node, root) in shape for shape in valid_shapes)
+        if not any(get_node_shape(node, root) in shape for shape in valid_shapes)
     ]
 
     return len(invalid_shapes) > 0
@@ -113,7 +114,7 @@ def wrong_probability_distribution(file):
     edges = graph.findall(graphml.get("edge"))
 
     nodes = [
-        node for node in get_all_nodes(graph) if is_shape("roundrectangle", node, root)
+        node for node in get_all_nodes(graph) if is_node_shape("roundrectangle", node, root)
     ]
 
     for node in nodes:
@@ -121,20 +122,18 @@ def wrong_probability_distribution(file):
             edge
             for edge in edges
             if edge.get("source") == node.get("id")
-            and is_shape("diamond", get_node_by_id(edge.get("target"), graph), root)
+            and is_node_shape("diamond", get_node_by_id(edge.get("target"), graph), root)
         ]
-
-        print("lines", len(lines), lines)
 
         sum = 0
 
         if len(lines) > 0:
-            for line in lines:
-                edgedata = line.find(graphml.get("data"))
-                line = edgedata.find(graphml.get("polyLine"))
-                edgelabel = line.find(graphml.get("edgelabel"))
-                sum = sum + float(edgelabel.text)
-
+            for edge in lines:
+                label = get_edge_label(edge, root)
+                try:
+                    sum = sum + float(label)
+                except ValueError:
+                   pass
             if sum != 1:
                 return True
 
@@ -145,25 +144,17 @@ def missing_edge_probability(file):
     (tree, root, graph, graphml) = get_tree_root_graph(file)
 
     edges = graph.findall(graphml.get("edge"))
-    nodes = [node for node in get_all_nodes(graph) if is_shape("diamond", node, root)]
+    nodes = [node for node in get_all_nodes(graph) if is_node_shape("diamond", node, root)]
 
     for node in nodes:
         lines = [edge for edge in edges if edge.get("target") == node.get("id")]
 
         for e in lines:
-            edgedata = e.find(graphml.get("data"))
-            line = edgedata.find(graphml.get("polyLine"))
-            edgelabel = line.find(graphml.get("edgelabel"))
-
-            if not edgelabel:
-                # missing label
+            label = get_edge_label(e, root)
+            try:
+                float(label)
+            except ValueError:
                 return True
-            else:
-                try:
-                    float(edgelabel.text)
-                except ValueError:
-                    # wrong format
-                    return True
     return False
 
 def one_type_of_child_nodes(file):
@@ -174,7 +165,7 @@ def one_type_of_child_nodes(file):
 
     for node in nodes:
         lines = [
-            get_shape(get_node_by_id(edge.get("target"), graph), root)
+            get_node_shape(get_node_by_id(edge.get("target"), graph), root)
             for edge in edges
             if edge.get("source") == node.get("id")
         ]

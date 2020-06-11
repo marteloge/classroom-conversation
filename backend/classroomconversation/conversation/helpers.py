@@ -26,10 +26,18 @@ def get_graphml():
 ########## VALIDATION HELPERS ###############
 
 
-def get_data_key_id(root):
+def get_node_data_key(root):
     graphml = get_graphml()
     for key in root.findall(graphml.get("key")):
         if key.get("yfiles.type") and key.get("yfiles.type") == "nodegraphics":
+            return key.get("id")
+    return ""
+
+
+def get_edge_data_key(root):
+    graphml = get_graphml()
+    for key in root.findall(graphml.get("key")):
+        if key.get("yfiles.type") and key.get("yfiles.type") == "edgegraphics":
             return key.get("id")
     return ""
 
@@ -54,22 +62,41 @@ def get_all_edges(graph):
     return graph.findall(graphml.get("edge"))
 
 
-def get_shape(node, root):
-    graphml = get_graphml()
-    data_key_id = get_data_key_id(root)
-    node_shape = None
+def get_edge_data(edge, root):
+    data_key = get_edge_data_key(root)
+    return edge.find(get_graphml().get("data") + "[@key='" + data_key + "']")
 
+
+def get_edge_label(edge, root):
+    graphml = get_graphml()
+    data = get_edge_data(edge, root)
+    line = data.find(graphml.get("polyLine"))
+
+    if not line:
+        return ""
+
+    edgelabel = line.find(graphml.get("edgelabel"))
+
+    if not edgelabel:
+        return ""
+
+    return edgelabel.text
+
+
+def get_node_shape(node, root):
+    node_shape = None
+    graphml = get_graphml()
+    data_key_id = get_node_data_key(root)
     data = node.find(graphml.get("data") + "[@key='" + data_key_id + "']")
     shapenode = data.find(graphml.get("shapenode"))
 
     if shapenode is not None:
         node_shape = shapenode.find(graphml.get("shape")).get("type")
-
     return node_shape if node_shape else None
 
 
-def is_shape(shape, node, root):
-    node_shape = get_shape(node, root)
+def is_node_shape(shape, node, root):
+    node_shape = get_node_shape(node, root)
     return shape in node_shape if node_shape else False
 
 
@@ -80,7 +107,6 @@ def get_node_by_id(id, graph):
     for node in nodes:
         if node.get("id") == id:
             return node
-
     return None
 
 

@@ -12,6 +12,8 @@ export const StyledBrowse = styled.div`
   margin: 0 auto;
   text-align: left;
 
+  padding: 10% 0;
+
   h2 {
     cursor: pointer;
   }

@@ -44,7 +44,7 @@ export function useFetchAndStoreConversation<Conversation>(
       if (conversation) {
         conversation.json.questions = selectRandomAnswers(
           conversation.json.questions,
-          conversation.json.uniformProbability
+          conversation.json.uniform
         );
         setData(conversation);
       }

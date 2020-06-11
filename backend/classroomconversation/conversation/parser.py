@@ -12,7 +12,7 @@ def graphml_to_json(file, uniform_probability):
     graph = root.find(graphml.get("graph"))
     nodes = graph.findall(graphml.get("node"))
     out = {
-        "uniformProbability": uniform_probability,
+        "uniform": uniform,
         "start": "",
         "end": "",
         "questions": {},

@@ -47,7 +47,7 @@ export type Graph = {
   nodes: Nodes;
   start: StartNode;
   end: string;
-  uniformProbability: boolean;
+  uniform: boolean;
 };
 
 export type Conversation = {

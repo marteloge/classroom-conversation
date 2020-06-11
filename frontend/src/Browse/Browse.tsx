@@ -26,8 +26,8 @@ const Browse = () => {
       <h1>Alle samtaler</h1>
 
       <StyledLinks>
-        {data.map((conversation: Conversation) => (
-          <div>
+        {data.map((conversation: Conversation, index: number) => (
+          <div key={index}>
             <h2
               onClick={() =>
                 history.push(`/conversation/${conversation.uuid}/start`)

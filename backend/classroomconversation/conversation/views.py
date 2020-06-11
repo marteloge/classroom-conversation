@@ -40,6 +40,8 @@ def upload_document(request):
             )
             conversation.save()
             return redirect("document_list")
+        else:
+            return render(request, "upload_document.html", {"form": form})
 
     form = ConversationForm()
     return render(request, "upload_document.html", {"form": form})

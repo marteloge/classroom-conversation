@@ -26,6 +26,7 @@ const GlobalStyle = createGlobalStyle`
     background-image: url(${background});
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     color: #FFFFFF;
     min-width: 100vw;
     min-height: 100vh;

@@ -9,6 +9,7 @@ import Start from "./Start/Start";
 
 import background from "./static/background-small.png";
 import Browse from "./Browse/Browse";
+import Credits from "./Credits/Credits";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -65,6 +66,8 @@ function App() {
       <Switch>
         <Route exact path="/" component={Landingpage} />
         <Route exact path="/browse" component={Browse} />
+        <Route exact path="/credits" component={Credits} />
+
         <Route exact path="/conversation/:uuid/start" component={Start} />
         <Route
           exact

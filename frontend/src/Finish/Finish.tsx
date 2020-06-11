@@ -183,8 +183,7 @@ const Finish = ({ name, intro, questions, answers }: FinishProps) => {
 
   return (
     <StyledFinish>
-      <h1>Friminutt!</h1>
-      <h2>Samtalen er nå ferdig</h2>
+      <h1>Samtalen er nå ferdig!</h1>
       <div>
         <button
           onClick={() => {
@@ -214,6 +213,10 @@ const Finish = ({ name, intro, questions, answers }: FinishProps) => {
             loading ? "Loading document..." : "Last ned samtale"
           }
         </PDFDownloadLink>
+
+        <button onClick={() => history.push("/browse/")}>
+          Velg ny samtale
+        </button>
       </div>
 
       <img src={clock} alt="Clock icon"></img>

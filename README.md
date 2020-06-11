@@ -116,3 +116,14 @@ This repo consists of two subtrees: frontend and backend. These are two separate
 - `git subtree pull frontend master --prefix=frontend --squash`
 - `git subtree push backend master --prefix=backend`
 - `git subtree push frontend master --prefix=frontend`
+
+# Django i18n
+
+Update textfiles with new text keys:
+
+`django-admin makemessages --locale nn`
+`django-admin makemessages --locale nb`
+
+Added text for new text keys
+
+`django-admin compilemessages`

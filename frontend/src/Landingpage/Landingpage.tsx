@@ -17,6 +17,9 @@ const Landingpage = () => {
         <br></br>
         <button onClick={() => history.push("/browse")}>Alle samtaler</button>
       </div>
+      <p className="credits" onClick={() => history.push("/credits")}>
+        (Krediteringer)
+      </p>
     </StyledLandingpage>
   );
 };

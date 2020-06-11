@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-10 20:49-0400\n"
+"POT-Creation-Date: 2020-06-10 22:52-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,35 +28,43 @@ msgstr "Dokument"
 msgid "form.label.uniform_probability"
 msgstr "Uniform sannsyn"
 
-#: conversation/forms.py:45
+#: conversation/forms.py:43
 msgid "validation.doc.all.nodes.connected"
 msgstr "Noen noder mangler kanter - du kan ikke ha løse noder!"
 
-#: conversation/forms.py:49
+#: conversation/forms.py:46
 msgid "validation.doc.broken.conversation"
 msgstr "Alle noder (diamant og firkant) må være koblet til en node (inn, ut)"
 
-#: conversation/forms.py:53
+#: conversation/forms.py:49
 msgid "validation.doc.one.star"
 msgstr "Startnoden må være en stjerne og det kan bare finnes en"
 
-#: conversation/forms.py:57
+#: conversation/forms.py:52
 msgid "validation.doc.end.node"
 msgstr "Du må minst ha en sluttnode (må være en 8-kant)"
 
-#: conversation/forms.py:61
+#: conversation/forms.py:55
 msgid "validation.doc.illegal.shapes"
-msgstr "Du har ulovlige nodetyper. Du kan bare ha stjerne (start), diamant (elev), rund firkant (lærer) og 8-kant(slutt)"
+msgstr ""
+"Du har ulovlige nodetyper. Du kan bare ha stjerne (start), diamant (elev), "
+"rund firkant (lærer) og 8-kant(slutt)"
 
-#: conversation/forms.py:65
+#: conversation/forms.py:58
 msgid "validation.doc.diamonds.connections"
 msgstr "Diamanter kan bare kobles til firkanter"
 
-#: conversation/forms.py:70
-msgid "validation.doc.missing.probability"
-msgstr "Noen av kantene fra lærer node til elevnode mangler sannsynlighet eller har ikke riktig format (0-1)"
+#: conversation/forms.py:61
+msgid "validation.doc.child.nodes.type"
+msgstr "Barn av node kan bare være av samme type (feks bare diamanter eller bare firkanter)"
 
-#: conversation/forms.py:74
+#: conversation/forms.py:65
+msgid "validation.doc.missing.probability"
+msgstr ""
+"Noen av kantene fra lærer node til elevnode mangler sannsynlighet eller har "
+"ikke riktig format (0-1)"
+
+#: conversation/forms.py:68
 msgid "validation.doc.probability.sum"
 msgstr "Noen av nodene dine summerer ikke til 100%"
 

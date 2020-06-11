@@ -23,15 +23,15 @@ def get_graphml():
     }
 
 
+########## VALIDATION HELPERS ###############
+
+
 def get_data_key_id(root):
     graphml = get_graphml()
     for key in root.findall(graphml.get("key")):
         if key.get("yfiles.type") and key.get("yfiles.type") == "nodegraphics":
             return key.get("id")
     return ""
-
-
-########## VALIDATION HELPERS ###############
 
 
 def get_tree_root_graph(file):

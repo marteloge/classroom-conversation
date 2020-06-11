@@ -14,6 +14,7 @@ from .validation import (
     broken_conversation,
     missing_edge_probability,
     wrong_probability_distribution,
+    one_type_of_child_nodes,
 )
 
 
@@ -55,6 +56,9 @@ class ConversationForm(forms.ModelForm):
 
         if not diamonds_connected_to_squares(file):
             raise forms.ValidationError(_("validation.doc.diamonds.connections"))
+
+        if not one_type_of_child_nodes(file):
+            raise forms.ValidationError(_("validation.doc.child.nodes.type"))
 
         if not uniform:
             if missing_edge_probability(file):

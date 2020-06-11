@@ -165,3 +165,20 @@ def missing_edge_probability(file):
                     # wrong format
                     return True
     return False
+
+def one_type_of_child_nodes(file):
+    (tree, root, graph, graphml) = get_tree_root_graph(file)
+
+    edges = graph.findall(graphml.get("edge"))
+    nodes = get_all_nodes(graph)
+
+    for node in nodes:
+        lines = [
+            get_shape(get_node_by_id(edge.get("target"), graph), root)
+            for edge in edges
+            if edge.get("source") == node.get("id")
+        ]
+
+        if len(set(lines)) > 1:
+            return False
+    return True

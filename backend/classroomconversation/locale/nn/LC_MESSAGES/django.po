@@ -118,7 +118,7 @@ msgstr "Kopier link"
 
 #: templates/document_list.html:21
 msgid "table.action.download"
-msgstr "Last ned"
+msgstr "Fil"
 
 #: templates/document_list.html:25
 msgid "table.action.start"

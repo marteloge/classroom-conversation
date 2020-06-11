@@ -15,6 +15,8 @@ from .validation import (
     missing_edge_probability,
     wrong_probability_distribution,
     one_type_of_child_nodes,
+    only_single_chained_questions,
+    all_nodes_contains_labels,
 )
 
 
@@ -59,6 +61,12 @@ class ConversationForm(forms.ModelForm):
 
         if not one_type_of_child_nodes(file):
             raise forms.ValidationError(_("validation.doc.child.nodes.type"))
+
+        if not only_single_chained_questions(file):
+            raise forms.ValidationError(_("validation.doc.single.chained.questions"))
+
+        if not all_nodes_contains_labels(file):
+            raise forms.ValidationError(_("validation.doc.missing.node.label"))
 
         if not uniform:
             if missing_edge_probability(file):

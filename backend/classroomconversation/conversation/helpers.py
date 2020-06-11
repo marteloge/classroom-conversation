@@ -131,19 +131,23 @@ def is_diamond(node, root):
     return "diamond" in node_shape if node_shape else False
 
 
-def is_star(shape, node, root):
+def is_star(node, root):
     node_shape = get_node_shape(node, root)
     return "star" in node_shape if node_shape else False
 
 
-def is_rectangle(shape, node, root):
+def is_rectangle(node, root):
     node_shape = get_node_shape(node, root)
     return "roundrectangle" in node_shape if node_shape else False
 
 
-def is_octagon(shape, node, root):
+def is_octagon(node, root):
     node_shape = get_node_shape(node, root)
     return "octagon" in node_shape if node_shape else False
+
+
+def get_all_rectangles(graph, root):
+    return [node for node in get_all_nodes(graph) if is_rectangle(node, root)]
 
 
 ### PARSER HELPERS ###

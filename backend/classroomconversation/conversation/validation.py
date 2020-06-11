@@ -7,7 +7,10 @@ from .helpers import (
     is_node_shape,
     get_node_shape,
     get_node_by_id,
-    get_edge_label
+    get_edge_label,
+    get_all_rectangles,
+    is_rectangle,
+    get_node_label
 )
 
 
@@ -172,4 +175,31 @@ def one_type_of_child_nodes(file):
 
         if len(set(lines)) > 1:
             return False
+    return True
+
+def only_single_chained_questions(file):
+    (tree, root, graph, graphml) = get_tree_root_graph(file)
+
+    edges = get_all_edges(graph)
+    nodes = get_all_rectangles(graph, root)
+
+    for node in nodes:
+        children = [edge for edge in edges if edge.get("source") == node.get("id")]
+        
+        if len(children) > 1:
+            targets = set([(get_node_shape(get_node_by_id(child.get("target"), graph), root)) for child in children])
+            if len(targets) > 1 or not "diamond" in targets:
+                return False
+
+    return True
+
+def all_nodes_contains_labels(file):
+    (tree, root, graph, graphml) = get_tree_root_graph(file)
+    
+    nodes = get_all_rectangles(graph, root)
+
+    for node in nodes:
+        if not get_node_label(node, root):
+            return False
+
     return True

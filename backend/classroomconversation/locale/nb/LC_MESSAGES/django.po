@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-10 22:52-0400\n"
+"POT-Creation-Date: 2020-06-11 17:19-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,122 +12,129 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: conversation/forms.py:31
+#: backend/classroomconversation/conversation/forms.py:33
 msgid "form.label.name"
 msgstr "Et navn"
 
-#: conversation/forms.py:32
+#: backend/classroomconversation/conversation/forms.py:34
 msgid "form.label.description"
 msgstr "Beskrivelse"
 
-#: conversation/forms.py:33
+#: backend/classroomconversation/conversation/forms.py:35
 msgid "form.label.document"
 msgstr "Dokument"
 
-#: conversation/forms.py:34
+#: backend/classroomconversation/conversation/forms.py:36
 msgid "form.label.uniform_probability"
 msgstr "Uniform sannsynlighet"
 
-#: conversation/forms.py:43
+#: backend/classroomconversation/conversation/forms.py:45
 msgid "validation.doc.all.nodes.connected"
 msgstr "Noen noder mangler kanter - du kan ikke ha løse noder!"
 
-#: conversation/forms.py:46
+#: backend/classroomconversation/conversation/forms.py:48
 msgid "validation.doc.broken.conversation"
 msgstr "Alle noder (diamant og firkant) må være koblet til en node (inn, ut)"
 
-#: conversation/forms.py:49
+#: backend/classroomconversation/conversation/forms.py:51
 msgid "validation.doc.one.star"
 msgstr "Startnoden må være en stjerne og det kan bare finnes en"
 
-#: conversation/forms.py:52
+#: backend/classroomconversation/conversation/forms.py:54
 msgid "validation.doc.end.node"
 msgstr "Du må minst ha en sluttnode (må være en 8-kant)"
 
-#: conversation/forms.py:55
+#: backend/classroomconversation/conversation/forms.py:57
 msgid "validation.doc.illegal.shapes"
 msgstr ""
 "Du har ulovlige nodetyper. Du kan bare ha stjerne (start), diamant (elev), "
 "rund firkant (lærer) og 8-kant(slutt)"
 
-#: conversation/forms.py:58
+#: backend/classroomconversation/conversation/forms.py:60
 msgid "validation.doc.diamonds.connections"
 msgstr "Diamanter kan bare kobles til firkanter"
 
-#: conversation/forms.py:61
+#: backend/classroomconversation/conversation/forms.py:63
 msgid "validation.doc.child.nodes.type"
-msgstr "Barn av node kan bare være av samme type (feks bare diamanter eller bare firkanter)"
+msgstr ""
+"Barn av node kan bare være av samme type (feks bare diamanter eller bare "
+"firkanter)"
 
-#: conversation/forms.py:65
+#: backend/classroomconversation/conversation/forms.py:66
+msgid "validation.doc.single.chained.questions"
+msgstr "Du kan ikke linke spørsmål (firkant) til flere spørsmål (flere firkanter)"
+
+#: backend/classroomconversation/conversation/forms.py:69
+msgid "validation.doc.missing.node.label"
+msgstr "Noen av kantane mangler label"
+
+#: backend/classroomconversation/conversation/forms.py:73
 msgid "validation.doc.missing.probability"
 msgstr ""
 "Noen av kantene fra lærer node til elevnode mangler sannsynlighet eller har "
 "ikke riktig format (0-1)"
 
-#: conversation/forms.py:68
+#: backend/classroomconversation/conversation/forms.py:76
 msgid "validation.doc.probability.sum"
 msgstr "Noen av nodene dine summerer ikke til 100%"
 
-#: templates/403.html:5
+#: backend/classroomconversation/templates/403.html:5
 msgid "403"
 msgstr "Du har ikke de riktige tilgangene"
 
-#: templates/404.html:5
+#: backend/classroomconversation/templates/404.html:5
 msgid "404"
 msgstr "404 - Ånei! En feil har oppstått :("
 
-#: templates/base.html:63
+#: backend/classroomconversation/templates/base.html:63
 msgid "navigation.conversation"
 msgstr "Alle samtaler"
 
-#: templates/base.html:68
+#: backend/classroomconversation/templates/base.html:68
 msgid "navigation.upload"
 msgstr "Last opp"
 
-#: templates/base.html:85
+#: backend/classroomconversation/templates/base.html:85
 msgid "form.label.button.language"
 msgstr "Bytt  "
 
-#: templates/base.html:90
+#: backend/classroomconversation/templates/base.html:90
 msgid "profile.hello"
 msgstr "Hei, "
 
-#: templates/document_list.html:9
+#: backend/classroomconversation/templates/document_list.html:9
 msgid "table.label.date"
 msgstr "Dato"
 
-#: templates/document_list.html:10
+#: backend/classroomconversation/templates/document_list.html:10
 msgid "table.label.name"
 msgstr "Navn"
 
-#: templates/document_list.html:11
+#: backend/classroomconversation/templates/document_list.html:11
 msgid "table.label.description"
 msgstr "Beskrivelse"
 
-#: templates/document_list.html:12
-msgid "table.label.file"
-msgstr "Last ned fil"
-
-#: templates/document_list.html:13
-msgid "table.label.start"
-msgstr "Test samtale"
-
-#: templates/document_list.html:14
-msgid "table.label.copy"
-msgstr "Kopier link"
-
-#: templates/document_list.html:21
+#: backend/classroomconversation/templates/document_list.html:21
 msgid "table.action.download"
 msgstr "Fil"
 
-#: templates/document_list.html:25
+#: backend/classroomconversation/templates/document_list.html:25
 msgid "table.action.start"
 msgstr "Test"
 
-#: templates/document_list.html:28
+#: backend/classroomconversation/templates/document_list.html:28
 msgid "table.action.copy"
 msgstr "Kopier"
 
-#: templates/upload_document.html:11
+#: backend/classroomconversation/templates/upload_document.html:11
 msgid "form.label.button"
 msgstr "Last opp"
+
+#~ msgid "table.label.file"
+#~ msgstr "Last ned fil"
+
+#~ msgid "table.label.start"
+#~ msgstr "Test samtale"
+
+#~ msgid "table.label.copy"
+#~ msgstr "Kopier link"

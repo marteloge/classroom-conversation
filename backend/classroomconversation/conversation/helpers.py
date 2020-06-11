@@ -67,6 +67,31 @@ def get_edge_data(edge, root):
     return edge.find(get_graphml().get("data") + "[@key='" + data_key + "']")
 
 
+def get_node_by_id(id, graph):
+    graphml = get_graphml()
+    nodes = graph.findall(graphml.get("node"))
+
+    for node in nodes:
+        if node.get("id") == id:
+            return node
+    return None
+
+
+### LABEL HELPERS ###
+
+
+def get_node_label(node, data_key_id):
+    graphml = get_graphml()
+    data = node.find(graphml.get("data") + "[@key='" + data_key_id + "']")
+    shapenode = data.find(graphml.get("shapenode"))
+    labels = shapenode.findall(graphml.get("nodelabel"))
+
+    for label in labels:
+        if label.text and len(label.text.strip()) > 0:
+            return label.text
+    return ""
+
+
 def get_edge_label(edge, root):
     graphml = get_graphml()
     data = get_edge_data(edge, root)
@@ -81,6 +106,9 @@ def get_edge_label(edge, root):
         return ""
 
     return edgelabel.text
+
+
+### HELPERS NODE SHAPE ###
 
 
 def get_node_shape(node, root):
@@ -100,23 +128,21 @@ def is_node_shape(shape, node, root):
     return shape in node_shape if node_shape else False
 
 
-def get_node_by_id(id, graph):
-    graphml = get_graphml()
-    nodes = graph.findall(graphml.get("node"))
-
-    for node in nodes:
-        if node.get("id") == id:
-            return node
-    return None
+def is_diamond(node, root):
+    node_shape = get_node_shape(node, root)
+    return "diamond" in node_shape if node_shape else False
 
 
-def get_node_label(node, data_key_id):
-    graphml = get_graphml()
-    data = node.find(graphml.get("data") + "[@key='" + data_key_id + "']")
-    shapenode = data.find(graphml.get("shapenode"))
-    labels = shapenode.findall(graphml.get("nodelabel"))
+def is_star(shape, node, root):
+    node_shape = get_node_shape(node, root)
+    return "star" in node_shape if node_shape else False
 
-    for label in labels:
-        if label.text and len(label.text.strip()) > 0:
-            return label.text
-    return ""
+
+def is_rectangle(shape, node, root):
+    node_shape = get_node_shape(node, root)
+    return "roundrectangle" in node_shape if node_shape else False
+
+
+def is_octagon(shape, node, root):
+    node_shape = get_node_shape(node, root)
+    return "octagon" in node_shape if node_shape else False

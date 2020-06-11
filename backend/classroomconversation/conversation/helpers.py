@@ -69,20 +69,18 @@ def get_edge_data(edge, root):
 
 def get_node_by_id(id, graph):
     graphml = get_graphml()
-    nodes = graph.findall(graphml.get("node"))
-
-    for node in nodes:
-        if node.get("id") == id:
-            return node
-    return None
+    node = graph.find(graphml.get("node") + "[@id='" + id + "']")
+    return node if node else None
 
 
 ### LABEL HELPERS ###
 
 
-def get_node_label(node, data_key_id):
+def get_node_label(node, root):
+    data_key = get_node_data_key(root)
+
     graphml = get_graphml()
-    data = node.find(graphml.get("data") + "[@key='" + data_key_id + "']")
+    data = node.find(graphml.get("data") + "[@key='" + data_key + "']")
     shapenode = data.find(graphml.get("shapenode"))
     labels = shapenode.findall(graphml.get("nodelabel"))
 
@@ -146,3 +144,28 @@ def is_rectangle(shape, node, root):
 def is_octagon(shape, node, root):
     node_shape = get_node_shape(node, root)
     return "octagon" in node_shape if node_shape else False
+
+
+### PARSER HELPERS ###
+
+
+def find_answers(edges, uniform, root, graph):
+    answers = []
+    for edge in edges:
+        target = edge.get("target")
+        answer_node = get_node_by_id(target, graph)
+        answer_shape = get_node_shape(answer_node, root)
+
+        if not uniform:
+            probability = 0
+            try:
+                probability = float(get_edge_label(edge, root))
+            except ValueError:
+                pass
+
+            answers.append(
+                {"id": target, "shape": answer_shape, "probability": probability}
+            )
+        else:
+            answers.append({"id": target, "shape": answer_shape})
+    return answers

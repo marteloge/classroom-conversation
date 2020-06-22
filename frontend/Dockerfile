@@ -1,4 +1,4 @@
-FROM node:8.9
+FROM node:8.10
 WORKDIR /
 COPY package.json yarn.lock tsconfig.json /
 COPY src /src

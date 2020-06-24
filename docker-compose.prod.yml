@@ -13,13 +13,6 @@ services:
     volumes:
       - static_volume:/staticfiles
       - media_volume:/mediafiles
-  frontend:
-    image: node:8.10
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile.prod
-    volumes:
-      - frontend_volume:/build
   db:
     image: postgres
     volumes:
@@ -28,20 +21,17 @@ services:
       - ./.env.prod.db
   nginx:
     build:
-      context: ./nginx
+      context: .
       dockerfile: Dockerfile.prod
     ports:
       - 80:80
       - 443:443
     volumes:
       - static_volume:/home/app/web/staticfiles
-      - frontend_volume:/home/app/web/frontend
       - media_volume:/home/app/web/mediafiles
     depends_on:
       - backend
-      - frontend
 volumes:
   postgres_data:
   static_volume:
-  frontend_volume:
   media_volume:

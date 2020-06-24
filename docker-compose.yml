@@ -13,11 +13,6 @@ services:
     volumes:
       - static_volume:/staticfiles
       - media_volume:/mediafiles
-  frontend:
-    image: node:8.10
-    build: ./frontend
-    volumes:
-      - frontend_volume:/build
   db:
     image: postgres
     ports:
@@ -30,18 +25,15 @@ services:
       - POSTGRES_DB=postgres
       - POSTGRES_HOST=db
   nginx:
-    build: ./nginx
+    build: .
     ports:
       - 80:80
     volumes:
       - static_volume:/home/app/web/staticfiles
-      - frontend_volume:/home/app/web/frontend
       - media_volume:/home/app/web/mediafiles
     depends_on:
       - backend
-      - frontend
 volumes:
   postgres_data:
   static_volume:
-  frontend_volume:
   media_volume:

@@ -11,5 +11,5 @@ COPY nginx.prod.conf /etc/nginx/conf.d
 
 COPY --from=builder /build /home/app/web/frontend
 
-COPY /var/www/certs/iluweb01.it.ntnu.no.key /etc/nginx/
-COPY /var/www/certs/iluweb01.it.ntnu.no.crt /etc/nginx/
+COPY certs/iluweb01.it.ntnu.no.key /etc/nginx
+COPY certs/iluweb01.it.ntnu.no.crt /etc/nginx

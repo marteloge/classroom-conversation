@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 export const StyledBrowse = styled.div`
-  width: 100vw;
+  width: 100%;
+  position: fixed;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,7 +13,7 @@ export const StyledBrowse = styled.div`
   margin: 0 auto;
   text-align: left;
 
-  padding: 10% 0;
+  padding: 10% 5%;
 
   h2 {
     cursor: pointer;

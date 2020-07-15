@@ -9,9 +9,13 @@ export const StyledFinish = styled.div`
   justify-content: center;
   align-items: center;
 
+  h1 {
+    padding: 5%;
+  }
+
   img {
     max-width: 150px;
-    padding: 20px;
+    padding: 5%;
   }
 
   .sample-enter {
@@ -33,8 +37,16 @@ export const StyledFinish = styled.div`
     color: white;
   }
 
+  div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
   button,
   a {
-    margin: 20px 10px;
+    margin: 5px 10px;
   }
 `;

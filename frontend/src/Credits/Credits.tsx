@@ -18,7 +18,7 @@ const Credits = () => (
     <StyledCredits>
       <StyledCredit>
         <h3>Elev jente</h3>
-        <img src={studentGirl} />
+        <img src={studentGirl} alt="Elev (jente) avatar" />
         <p>
           <a href="https://www.flaticon.com/authors/freepik" title="Freepik">
             Freepik
@@ -31,7 +31,7 @@ const Credits = () => (
       </StyledCredit>
       <StyledCredit>
         <h3>Elev gutt</h3>
-        <img src={studentBoy} />
+        <img src={studentBoy} alt="Elev (gutt) avatar" />
         <p>
           <a href="https://www.flaticon.com/authors/freepik" title="Freepik">
             Freepik
@@ -44,7 +44,7 @@ const Credits = () => (
       </StyledCredit>
       <StyledCredit>
         <h3>Lærer mann</h3>
-        <img src={teacherMan} />
+        <img src={teacherMan} alt="Lærer mann avatar" />
         <p>
           <a href="https://www.flaticon.com/authors/freepik" title="Freepik">
             Freepik
@@ -57,7 +57,7 @@ const Credits = () => (
       </StyledCredit>
       <StyledCredit>
         <h3>Lærer dame</h3>
-        <img src={teacherWoman} />
+        <img src={teacherWoman} alt="Lører dame avatar" />
         <p>
           <a href="https://www.flaticon.com/authors/monkik" title="monkik">
             monkik
@@ -70,7 +70,7 @@ const Credits = () => (
       </StyledCredit>
       <StyledCredit>
         <h3>Klokke</h3>
-        <img src={clock} />
+        <img src={clock} alt="Klokke" />
         <p>
           <a href="https://www.flaticon.com/authors/freepik" title="Freepik">
             Freepik
@@ -84,22 +84,5 @@ const Credits = () => (
     </StyledCredits>
   </StyledCreditPage>
 );
-
-//     <p>, og </p>{" "}
-//     <div>
-//       Icons made by{" "}
-//       <a >
-//         Freepik
-//       </a>{" "}
-//       from{" "}
-//
-//     </div>
-//     <p>Lærer dame</p>
-//     <div>
-//       Icons made by{" "}
-//
-//     </div>
-//   </div>
-// );
 
 export default Credits;

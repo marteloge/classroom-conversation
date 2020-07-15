@@ -3,8 +3,9 @@ import styled from "styled-components";
 import { calculateResponsiveSize } from "./../helpers";
 
 export const StyledQuestion = styled.div`
-  min-height: 100vh;
-  width: 100vw;
+  min-height: 100%;
+  width: 100%;
+
   display: flex;
   flex-direction: column;
   align-items: center;

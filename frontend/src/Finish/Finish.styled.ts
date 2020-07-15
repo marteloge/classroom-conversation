@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 export const StyledFinish = styled.div`
-  min-height: 100vh;
+  min-height: 100%;
+  width: 100%;
+  position: fixed;
   display: flex;
   flex-direction: column;
   justify-content: center;

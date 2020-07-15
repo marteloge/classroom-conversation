@@ -17,10 +17,10 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     font-family: "Open Sans", sans-serif;
   }
-
-  body, html, #root {
-    width: 100vw;
-    min-height: 100vh;
+  html {
+    height: 100%;
+    width: 100%;
+    position: fixed;
   }
 
   body {
@@ -29,8 +29,6 @@ const GlobalStyle = createGlobalStyle`
     background-repeat: no-repeat;
     background-attachment: fixed;
     color: #FFFFFF;
-    min-width: 100vw;
-    min-height: 100vh;
     font-size: 1rem;
   }
   

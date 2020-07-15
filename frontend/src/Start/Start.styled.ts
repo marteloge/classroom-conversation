@@ -3,9 +3,9 @@ import styled from "styled-components";
 import { calculateResponsiveSize } from "./../helpers";
 
 const StyledStart = styled.div`
-  min-height: 100vh;
-  max-width: 700px;
-  margin: 0 auto;
+  min-height: 100%;
+  width: 100%;
+  position: fixed;
 
   display: flex;
   flex-direction: column;
@@ -21,6 +21,7 @@ const StyledStart = styled.div`
 
   .actions {
     align-items: stretch;
+    padding: 5%;
   }
   .actions button {
     margin: 0 10px;
@@ -53,8 +54,11 @@ const StyledStart = styled.div`
     flex-direction: column;
     align-items: center;
     text-align: center;
+  }
+
+  p {
+    max-width: 800px;
     padding: 5%;
-    max-width: 900px;
   }
 
   img {

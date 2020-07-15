@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 const StyledLandingPage = styled.div`
-  width: 100vw;
-  min-height: 100vh;
+  width: 100%;
+  min-height: 100%;
+  position: fixed;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -1,9 +1,11 @@
 import React from "react";
 
+import StyledLoading from "./Loading.styled";
+
 const Loading = () => (
-  <div>
+  <StyledLoading>
     <h1>Laster...</h1>
-  </div>
+  </StyledLoading>
 );
 
 export default Loading;
